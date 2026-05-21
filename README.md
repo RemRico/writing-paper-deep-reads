@@ -38,7 +38,20 @@
 
 ## 📖 看产出
 
-> 4 段节选，全部来自 [`examples/embed-rl-deep-read.md`](examples/embed-rl-deep-read.md)（论文：Jiang et al. 2026, *Embed-RL: Reinforcement Learning for Reasoning-Driven Multimodal Embeddings*）。
+> 5 段节选，全部来自 [`examples/embed-rl-deep-read.md`](examples/embed-rl-deep-read.md)（论文：Jiang et al. 2026, *Embed-RL: Reinforcement Learning for Reasoning-Driven Multimodal Embeddings*）。
+
+### 作者背景样例 ⭐ 论文里没有，由 skill 主动调研补上
+
+> ## 作者背景
+>
+> 全员 **清华深圳国际研究生院（THU SIGS）+ 快手 Kling 团队** 联合署名。
+>
+> - **Pengfei Wan**（万鹏飞，快手 Kling Team）：快手视觉生成大模型负责人之一，**Kling AI** 视频生成模型主力作者。
+> - **Yansong Tang**（汤延松，清华 SIGS 通讯）：清华深研院助理教授，多模态视觉理解 + 视频理解方向。
+>
+> 💡 **作者背景的潜在含义**：这是一篇 **学界 × 大厂视觉生成团队** 联合产出的 RL × MLLM Embedding 论文。Kling 团队过去主要做视频生成，这次转身做 **多模态检索 embedding** 是一个值得注意的信号 —— 视频生成团队对"视频帧级理解"和"细粒度视觉 grounding"有天然优势，反映在本文的 T-CoT 设计里（key_frames 字段、bbox_2d 字段）。
+
+> 这一节是 skill 的差异化设计 —— 不只是 OCR 论文内容，**还会主动调研作者机构、知名度、团队信号、同公司同事关系**，便于日后辨识与评估论文权威性。论文有这种"作者背景值得展开"特征时自动触发（见 [`template.md`](template.md) 章节裁剪指引）。
 
 ### 图解读样例
 

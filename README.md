@@ -140,13 +140,7 @@ images/{paper-slug}-fig*.png
 | **B. 自动抽图** | 你没附图 | `scripts/crop_figure.py PDF PAGE --out images/...` |
 | **C. 混合** | 你附了部分 | A + B 并集；缺图默认 TODO 让你决定 |
 
-**为什么模式 A 要"第一动作 cp"？**
-
-> Claude Code 把附图同时塞给多模态 API 和写到 `~/.claude/image-cache/{session-id}/*.png`，后者有 TTL。
-> 实测：call #4 cp 成功；call #13 cp（7 Reads + 5 Bashes 之后）失败。
-> 所以模式 A 的第一个 Bash 必须 `cp`，不能拖到读完 PDF 之后。
-
-详见 §7 Pitfalls。
+**为什么模式 A 要"第一动作 cp"？** image-cache 有 TTL，第一个 Bash 之后才 `cp` 就会丢图 —— 详见 §7 第二条 Pitfall。
 
 ---
 
@@ -198,5 +192,5 @@ images/{paper-slug}-fig*.png
 
 [MIT License](LICENSE) —— 自由 fork、修改、商用。
 
-如果这个 skill 帮你省了 token，给个 star ⭐ 就是最好的反馈。
+如果这个 skill 帮到你，给个 star ⭐ 就是最好的反馈。
 Issue / PR welcome —— 特别欢迎补充新的 Pitfalls。

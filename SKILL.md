@@ -100,7 +100,7 @@ echo "found cache: $LATEST"
 ls -la $LATEST
 
 # 2) mkdir 目标 + 一次性全量 cp 到 images/，先用 N.png 占位命名
-TARGET="/Users/yangtianyu/文档/.../调研/images"
+TARGET="${HOME}/research/{topic}/images"
 mkdir -p $TARGET
 cp $LATEST/*.png $TARGET/
 ls -la $TARGET/*.png
@@ -190,7 +190,7 @@ mv $TARGET/2.png $TARGET/{slug}-fig2.png
 - 与 PDF 同目录
 
 ### 图片命名与存放
-- `images/{paper-slug}-fig{N}.png`，slug 小写连字符（`mine-refine`、`bixse`、`fgr-colbert`）
+- `images/{paper-slug}-fig{N}.png`，slug 小写连字符（如 `paper-a`、`colbert-late-interaction`）
 - 编号 fig{N} 对应**论文里的 Figure N**（不是用户给图的顺序 img1/img2）——必要时用户给了 img1/2/3 而论文是 Fig 1/3/5，要按论文编号，不按 img 顺序
 - 用户附图：`cp` / `mv` 到 canonical 路径，不保留临时路径和原文件名
 - 模式 B 自动抽：用 `scripts/crop_figure.py` 渲染，**不要手写 PIL 像素坐标**
@@ -202,7 +202,7 @@ mv $TARGET/2.png $TARGET/{slug}-fig2.png
 | 图 | 每张图必跟"图 N 解读"段（分点 + 关键洞察，不只 OCR caption） |
 | 公式 | `$$...$$` 块公式 + "直觉理解"段（把符号翻成人话） |
 | 主结果表 | 最佳行加粗（行内 `**值**`），表后跟"关键发现"小段 |
-| 元信息 | blockquote：标题/作者+机构/会议或 arXiv/关键词；知名研究者+同公司同事**加粗**；阿里同事查到花名要标（如 `Xiaojie Ke（阿里花名 **千怡**）`） |
+| 元信息 | blockquote：标题/作者+机构/会议或 arXiv/关键词；如需为某位研究者补充身份、背景或别名（同公司同事、知名学者等），可在元信息加粗或括注，便于日后辨识 |
 | 文风标记 | ⭐ 关键设计 · ⚠️ 易踩坑 · 📘 前置课 · ✅/❌ 对比 · `>` 引用块做澄清 |
 
 ### 末尾启发段（必写）
@@ -212,7 +212,7 @@ mv $TARGET/2.png $TARGET/{slug}-fig2.png
 ## Output Checklist
 
 - [ ] 文件名 = `{论文简称} 论文精读总结.md`，与 PDF 同目录
-- [ ] H1 + blockquote 元信息齐全，关键人物加粗/标花名
+- [ ] H1 + blockquote 元信息齐全，必要时为关键人物加粗或括注身份
 - [ ] 至少有：动机、方法详解、实验设置、主结果、消融、启发
 - [ ] 每张图（含 TODO 占位）都有"图 N 解读"段
 - [ ] 公式后有"直觉理解"段
